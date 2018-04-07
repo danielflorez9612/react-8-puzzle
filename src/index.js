@@ -4,12 +4,13 @@ import './index.css';
 import {Solver} from './heuristics/Solver';
 import {Solution} from './heuristics/solutions/Solution';
 import {State} from './heuristics/solutions/State';
+import 'animate.css';
 
 class Square extends React.Component{
 
     render() {
         return (
-            <button className='cell' >
+            <button className='cell animated fadeIn' >
                 {this.props.value}
             </button>
         );
@@ -131,8 +132,8 @@ class Board extends React.Component{
     }
 
     checkWin(matrix) {
-        console.log("checking win");
-        console.table(this.state.matrix);
+        // console.log("checking win");
+        // console.table(this.state.matrix);
         if(new State(matrix).equals(new State(Solver.finalState))){
             alert("Contratulations you win");
         }

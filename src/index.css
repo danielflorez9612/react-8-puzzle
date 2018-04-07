@@ -1,25 +1,36 @@
 .cell {
     border: solid 2px darkgrey;
     text-align: center;
-    font-size: 150px;
-    height: 20vh;
-    width: 20vw;
+    font-size: 50px;
+    height: 100px;
+    width: 100px;
     cursor: pointer;
     min-width: fit-content;
     padding: 10px;
 }
+body {
+     background: #e2e1e0;
+ }
+
+
 button.action {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 2px;
+    display: inline-block;
+    margin: 1rem;
+    /*position: relative;*/
     position: absolute;
-    bottom: 20%;
+    bottom: 30%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 50vw;
+    transform: translateX(-55%);
+    width: 20vw;
     height: 5vh;
     font-weight: bold;
     font-size: xx-large;
     border: none;
     color: white;
     cursor: pointer;
+    /*background-color: white;*/
     background-color: #3d5afe;
 }
 .cell-container {
@@ -33,6 +44,7 @@ button.action {
     color: darkgrey;
 }
 .board {
+    min-width: fit-content;
     align-items: center;
     width: fit-content;
     height: fit-content;
