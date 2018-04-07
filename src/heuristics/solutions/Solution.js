@@ -12,7 +12,7 @@ export class Solution {
             console.log("In "+solution.time+"ms");
             solution.steps.forEach(step => console.table(step.matrix));
         } else{
-            console.log("No suitable solution found in "+solution.time+"ms");
+            console.log("There is no better solution found in "+solution.time+"ms");
         }
     }
 }

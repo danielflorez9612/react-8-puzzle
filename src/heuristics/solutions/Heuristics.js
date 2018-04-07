@@ -35,11 +35,12 @@ export class AStar {
         Object.freeze(currentStep);
         // console.table(currentStep.matrix);
         if(!currentStep.equals(this._finalState)){
-            let possibleMovements = currentStep.getPossibleMovements(this.visitedStates);
-            // console.log(possibleMovements);
-            // console.table(currentStep.matrix);
             let nextStep:State=null;
             try {
+                let possibleMovements = currentStep.getPossibleMovements(this.visitedStates);
+                // console.log(possibleMovements);
+                // console.table(currentStep.matrix);
+
                 nextStep= possibleMovements
                     .reduce((previousValue, currentValue) => {
                         let returnValue = previousValue;
