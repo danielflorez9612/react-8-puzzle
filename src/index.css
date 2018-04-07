@@ -12,25 +12,28 @@ body {
      background: #e2e1e0;
  }
 
-
+.button-container {
+    width: fit-content;
+    position: absolute;
+    /*background-color: yellow;*/
+    bottom: 28%;
+    transform: translateX(-50%);
+    left: 50%;
+    text-align: center;
+    text-align: -webkit-center;
+}
 button.action {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border-radius: 2px;
-    display: inline-block;
     margin: 1rem;
-    /*position: relative;*/
-    position: absolute;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-55%);
-    width: 20vw;
-    height: 5vh;
+    display: block;
+    height: fit-content;
     font-weight: bold;
-    font-size: xx-large;
+    font-size: x-large;
     border: none;
     color: white;
     cursor: pointer;
-    /*background-color: white;*/
+    padding: 10px;
     background-color: #3d5afe;
 }
 .cell-container {

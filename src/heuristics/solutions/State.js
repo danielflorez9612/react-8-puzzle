@@ -64,6 +64,7 @@ export class State {
     }
 
     static move(matrix,i,j,newI,newJ):State {
+        // console.table(matrix);
         let currentNumber= matrix[i][j];
         let numberToChange= matrix[newI][newJ];
         return new State(State.changeValues(matrix,currentNumber,numberToChange));

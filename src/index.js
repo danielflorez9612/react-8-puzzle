@@ -20,14 +20,7 @@ class Square extends React.Component{
 }
 class Board extends React.Component{
     zeroLocation() {
-        for (let i = 0; i< this.state.matrix.length; i++){
-            for (let j = 0; j< this.state.matrix[0].length; j++){
-                if(this.state.matrix[i][j]===0){
-                    return {i:i,j:j};
-                }
-            }
-        }
-        return null;
+        return Solver.findNumber(this.state.matrix,0);
     }
     constructor(props){
         super(props);
@@ -57,9 +50,14 @@ class Board extends React.Component{
                 <div className="board">
                     {rows}
                 </div>
-                <button className='action' onClick={()=>this.solve()}>
-                    SOLVE
-                </button>
+                <div className="button-container">
+                    <button className='action' onClick={()=>this.solveDisorder()}>
+                        SOLVE DISORDER
+                    </button>
+                    <button className='action' onClick={()=>this.solveManhattan()}>
+                        SOLVE MANHATTAN
+                    </button>
+                </div>
             </div>
         );
     }
@@ -113,8 +111,15 @@ class Board extends React.Component{
             </div>
         );
     }
-    solve() {
-        Solution.printSolution(Solver.solveMatrix(this.state.matrix.slice()));
+    solveDisorder() {
+        let solution = Solver.solveDisorder(this.state.matrix.slice());
+        solution.solutionName='Disorder';
+        Solution.printSolution(solution);
+    }
+    solveManhattan() {
+        let solution = Solver.solveManhattan(this.state.matrix.slice());
+        solution.solutionName='Manhattan';
+        Solution.printSolution(solution);
     }
 
     handleClick(row, column) {

@@ -4,8 +4,9 @@ import {Solver} from '../Solver';
 export class Solution {
     steps:State[];
     time:number;
-
+    solutionName:string='';
     static printSolution(solution:Solution) {
+        console.log(solution.solutionName);
         if(solution.steps.find(value => value.equals(new State(Solver.finalState)))){
             console.log("Steps: "+(solution.steps.length-1));
             console.log("In "+solution.time+"ms");
