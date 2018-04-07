@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {Solver} from './heuristics/Solver';
 import {Solution} from './heuristics/solutions/Solution';
+import {State} from './heuristics/solutions/State';
 
 class Square extends React.Component{
 
@@ -17,6 +18,16 @@ class Square extends React.Component{
 
 }
 class Board extends React.Component{
+    zeroLocation() {
+        for (let i = 0; i< this.state.matrix.length; i++){
+            for (let j = 0; j< this.state.matrix[0].length; j++){
+                if(this.state.matrix[i][j]===0){
+                    return {i:i,j:j};
+                }
+            }
+        }
+        return null;
+    }
     constructor(props){
         super(props);
         this.state = {
@@ -54,10 +65,7 @@ class Board extends React.Component{
     render() {
         return this.renderBoard();
     }
-    handleClick(row,column) {
-        this.renderChangeValue(row,column);
-    };
-    changeValues(value1, value2){
+    changeValues(value1, value2):[][] {
         function isNumber(value) {
             return parseInt(value,10)>=0&&parseInt(value,10)<10;
         }
@@ -79,6 +87,7 @@ class Board extends React.Component{
             this.setState( {
                 matrix:otherMatrix
             });
+            return otherMatrix;
         }
     }
     renderChangeValue(row,column) {
@@ -92,13 +101,41 @@ class Board extends React.Component{
     renderCell(row, column, number) {
         const show = number>0?Number(number):'-';
         return (
-            <div className="cell-container" onClick={()=> this.handleClick(row,column)}>
+            <div className="cell-container"
+                 onContextMenu={(e)=> {
+                    e.preventDefault();
+                    this.renderChangeValue(row,column);
+                }}
+                 onClick={()=>this.handleClick(row,column)}
+            >
                 <Square row={row} column={column} value={show} />
             </div>
         );
     }
     solve() {
         Solution.printSolution(Solver.solveMatrix(this.state.matrix.slice()));
+    }
+
+    handleClick(row, column) {
+        if(this.isNextEmpty(row,column)) {
+            this.checkWin(this.changeValues(this.state.matrix[row][column],0));
+        }
+    }
+
+    isNextEmpty(row, column) {
+        const zeroLoc = this.zeroLocation();
+        return (row-1===zeroLoc.i && column===zeroLoc.j)
+        || (row+1===zeroLoc.i&& column===zeroLoc.j)
+        || (column-1===zeroLoc.j && row===zeroLoc.i )
+        || (column+1===zeroLoc.j && row===zeroLoc.i );
+    }
+
+    checkWin(matrix) {
+        console.log("checking win");
+        console.table(this.state.matrix);
+        if(new State(matrix).equals(new State(Solver.finalState))){
+            alert("Contratulations you win");
+        }
     }
 }
 class App extends React.Component {

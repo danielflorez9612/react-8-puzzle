@@ -33,7 +33,7 @@ export class AStar {
 
     }
     recursiveAlgorithm(currentStep:State) : State[] {
-        let steps:State[] = [];
+        let steps:State[] = [currentStep];
         Object.freeze(currentStep);
         // console.table(currentStep.matrix);
         if(!currentStep.equals(this._finalState)){
@@ -54,7 +54,7 @@ export class AStar {
             // console.log("visited states");
             // this.visitedStates.forEach(value => console.table(value.matrix));
             if(nextStep){
-                steps.push(nextStep);
+                // steps.push(nextStep);
                 let recursiveSolution = this.recursiveAlgorithm(nextStep);
                 // console.log(recursiveSolution);
                 Array.prototype.push.apply(steps,recursiveSolution);
