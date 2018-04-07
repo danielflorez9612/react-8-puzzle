@@ -39,7 +39,7 @@ export class Solver {
     static findNumber(matrix,number) {
         for (let i = 0; i< matrix.length; i++){
             for (let j = 0; j< matrix[0].length; j++){
-                if(matrix[i][j]===number){
+                if(matrix[i][j]==number){
                     return {i:i,j:j};
                 }
             }
