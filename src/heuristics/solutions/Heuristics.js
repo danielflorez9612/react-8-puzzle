@@ -23,7 +23,10 @@ export class AStar {
     algorithm() :Solution {
         this.visitedStates = [];
         let t1 = performance.now();
-        let steps = this.recursiveAlgorithm(this._initialState);
+        let steps= [];
+
+        steps= this.recursiveAlgorithm(this._initialState);
+
         let t2 = performance.now();
         return {
             steps:steps,
@@ -40,21 +43,26 @@ export class AStar {
             let possibleMovements = currentStep.getPossibleMovements(this.visitedStates);
             // console.log(possibleMovements);
             // console.table(currentStep.matrix);
-            const nextStep: State= possibleMovements
-                .reduce((previousValue, currentValue) => {
-                    let returnValue = previousValue;
-                    if(previousValue && currentValue) {
-                        if (this._heuristic(currentValue) < this._heuristic(previousValue)){
-                            returnValue =  currentValue;
+            let nextStep:State=null;
+            try {
+                nextStep= possibleMovements
+                    .reduce((previousValue, currentValue) => {
+                        let returnValue = previousValue;
+                        if(previousValue && currentValue) {
+                            if (this._heuristic(currentValue) < this._heuristic(previousValue)){
+                                returnValue =  currentValue;
+                            }
                         }
-                    }
-                    return returnValue;
-                 });
+                        return returnValue;
+                    });
+            }catch (e) {
+
+            }
+
             this.visitedStates.push(currentStep);
             // console.log("visited states");
             // this.visitedStates.forEach(value => console.table(value.matrix));
             if(nextStep){
-                // steps.push(nextStep);
                 let recursiveSolution = this.recursiveAlgorithm(nextStep);
                 // console.log(recursiveSolution);
                 Array.prototype.push.apply(steps,recursiveSolution);
