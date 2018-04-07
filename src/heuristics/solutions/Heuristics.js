@@ -23,17 +23,12 @@ export class AStar {
     algorithm() :Solution {
         this.visitedStates = [];
         let t1 = performance.now();
-        let steps= [];
-
-        steps= this.recursiveAlgorithm(this._initialState);
-
+        const steps= this.recursiveAlgorithm(this._initialState);
         let t2 = performance.now();
         return {
             steps:steps,
             time:t2-t1
         };
-        // console.log(steps);
-
     }
     recursiveAlgorithm(currentStep:State) : State[] {
         let steps:State[] = [currentStep];

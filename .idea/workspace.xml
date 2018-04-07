@@ -4,7 +4,6 @@
     <list default="true" id="ff52fe68-e8a6-4a9f-ae42-6fade776fb52" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/heuristics/solutions/Heuristics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/heuristics/solutions/Heuristics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/heuristics/solutions/Solution.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/heuristics/solutions/Solution.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="Heuristics.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/heuristics/solutions/Heuristics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="285">
+              <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -227,7 +226,7 @@
       <workItem from="1522934509904" duration="765000" />
       <workItem from="1523020843757" duration="984000" />
       <workItem from="1523021836886" duration="18038000" />
-      <workItem from="1523108977979" duration="19652000" />
+      <workItem from="1523108977979" duration="19710000" />
     </task>
     <task id="LOCAL-00001" summary="feat add usage to play">
       <created>1523125900125</created>
@@ -250,11 +249,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523128359876</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix no suitable solutions found">
+      <created>1523129159908</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523129159908</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39439000" />
+    <option name="totallyTimeSpent" value="39497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="113" width="1440" height="869" extended-state="6" />
@@ -292,7 +298,8 @@
     <MESSAGE value="feat add usage to play" />
     <MESSAGE value="feat winning checking on click" />
     <MESSAGE value="feat manhattan sum heuristic" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat manhattan sum heuristic" />
+    <MESSAGE value="fix no suitable solutions found" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix no suitable solutions found" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,8 +453,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/heuristics/solutions/Heuristics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="285">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
